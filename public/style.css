@@ -1,0 +1,366 @@
+/*-------FOR /LOGIN PAGE BACKGROUND IMG ------*/
+.img-for-background {
+   background: url(/frontimage/pk.jpg );
+   background-repeat: no-repeat;
+   
+   width: 100%;
+}
+
+/*-------FOR BODY COLOR ------*/
+body {
+   background-color: rgb(64, 64, 156);
+}
+
+/*-------OUR PARKING LOGO CSS ------*/
+#parking-logo {
+
+   font-family: 'Charis SIL', serif;
+   font-size: 50px;
+   text-align: center;
+   color: rgb(255, 255, 255);
+   text-shadow: 20px 8px rgb(10, 10, 10);
+   margin-top: -40px;
+
+
+}
+
+/*-------FORM LOGIN WALE KO MIDDLE MAI LANE K LIYE ------*/
+#parking-form {
+
+   position: relative;
+   margin-top: 200px;
+}
+
+
+/*-------FOOTER KE MONEY WALE SECTION KI CSS ------*/
+
+#v-money {
+   text-align: start;
+}
+
+#v-money h4 {
+   text-align: start;
+   margin-left: 20px;
+}
+
+#v-money li {
+   font-weight: bold;
+}
+
+#note-park {
+   background-color: rgb(194, 219, 105);
+   border-radius: 10px;
+   padding: 10px;
+   padding-bottom: 50px;
+}
+
+/*-------FOOTER KE SERVICE  WALE SECTION KI CSS ------*/
+#Services-park h4 {
+   text-align: start;
+   margin-left: 20px;
+
+}
+
+#Services-park {
+   background-color: rgb(194, 219, 105);
+   border-radius: 10px;
+   padding: 20px;
+   padding-bottom: 220px;
+}
+
+#Service-park-li {
+   font-weight: bold;
+}
+
+/*-------FOOTER KE REVIEW  WALE SECTION KI CSS ------*/
+#Review-park {
+   background-color: rgb(194, 219, 105);
+   border-radius: 10px;
+   padding: 20px;
+   padding-bottom: 110px;
+}
+
+#Review {
+   background-color: rgb(64, 64, 156);
+   margin-top: 50px;
+}
+
+/*-------ALL PAGES KI MID PR BACKGROUND IMG ------*/
+#mid {
+   background: url('../frontimage/123.jpg');
+   width: 100%;
+
+}
+
+/*-------ALL ENTERY PAGE KI CSS IN PARKING WALE TEXT KI  ------*/
+#all-Parking {
+   color: white;
+   font-size: 14px;
+   float: right;
+   margin-right: 40px;
+   font-weight: 700;
+}
+
+#root {
+   position: relative;
+
+
+   margin-right: -130px;
+   float: right;
+   color: white;
+
+   margin-top: 43px;
+   border-radius: 10px;
+
+}
+
+/*------NAVBAAR KI CSS NAV ADDITNOL NAV KI------*/
+
+nav {
+   height: 80px;
+   background-color: rgb(0, 0, 0);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0px 50px 0px 100px;
+}
+
+.logo {
+   font-size: 33px;
+   color: white;
+   font-weight: 600;
+
+}
+
+nav ul {
+   display: flex;
+   list-style: none;
+
+   align-items: center;
+
+}
+
+nav ul li {
+   margin: 0px 5px;
+}
+
+nav ul li a {
+   color: rgb(255, 255, 255);
+   text-decoration: none;
+   letter-spacing: 1px;
+   padding: 8px 10px;
+   border-radius: 5px;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   transition: all 0.3s ease;
+   padding: 8px 10px;
+   border-radius: 5px;
+
+}
+
+/*-------NAV-all--BUTTON-css ------*/
+#click {
+   display: none;
+}
+
+nav .menu-btn i {
+   color: white;
+   font-size: 25px;
+   cursor: pointer;
+   display: none;
+}
+
+/*-------FOR BUTTON ALL OUT ACTIVATE ------*/
+#all-out ul li a:hover,
+a.outactive {
+   background-color: white;
+   color: black;
+   align-items: center;
+}
+
+
+
+
+/*-------FOR BUTTON ALL ENTERY  ACTIVATE ------*/
+nav ul li a:hover,
+nav ul li a.active {
+   background-color: white;
+   color: black;
+   align-items: center;
+
+}
+
+/*-------FOR BUTTON REVIEWS ACTIVATE ------*/
+
+#nav-review ul li a:hover,
+a.inactive {
+   background-color: white;
+   color: black;
+   align-items: center;
+}
+
+/*----------FOR REVIEWS CSS-------*/
+
+#mid-reviews {
+   background: url('../frontimage/123.jpg');
+}
+
+#mid-reviews tr th {
+   color: white;
+   font-weight: 600;
+}
+
+#mid-reviews tr td {
+   color: white;
+   font-weight: 600;
+}
+
+
+@media (max-width:764px){
+ #mid .addNewEntery{
+width: 150px;
+ }
+ #mid .addNewEntery h5{
+   color: white !important;
+   text-align: center !important;
+ }
+
+}
+
+
+
+
+/*-------NAVBAAR KO REPONSIVE  BANANE KE LIYE  PHONE SCREEN  ------*/
+@media (max-width:940px) {
+   #logout {
+      width: 30%;
+   }
+
+   #click:checked~.menu-btn i:before {
+      content: "\f00d";
+   }
+
+   nav ul {
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      background-color: #111;
+      height: 100vh;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+
+
+   }
+
+   #Review {
+      margin-top: 440px;
+   }
+
+   #click:checked~ul {
+      left: 0%;
+      transition: all 0.5s ease;
+   }
+
+   nav ul li {
+      margin-top: 40px 0;
+      margin: 30px 5px;
+
+   }
+
+   nav ul li a {
+      font-size: 20px;
+      display: block;
+   }
+
+   nav ul li a:hover,
+   nav ul li a.active {
+      background: none;
+      color: cyan;
+
+   }
+
+   nav .menu-btn i {
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+      display: block;
+
+   }
+}
+
+/*----For Printing css---*/
+
+.body-print {
+   background-color: white;
+}
+
+.print #print-heading {
+   color: black;
+   font-size: 60px;
+   font-weight: 600;
+   width: 100%;
+   margin: 40px 0;
+   text-shadow: 2px 2px 5px brown;
+   text-shadow: 2px 2px 5px red;
+}
+
+.print #print-address {
+   font-weight: bold;
+   font-size: 20px;
+   margin-top: -37px;
+
+}
+
+.print .print-header {
+   text-align: center;
+}
+
+.print-mid .border-box {
+   width: 515px;
+   height: 400px;
+   border: 1px solid black;
+   margin-left: 31px;
+   text-align: center;
+}
+
+.total-value {
+   border: 2px solid black;
+   width: 515px;
+   height: 40px;
+   margin-top: 277px;
+}
+
+#img-reviews {
+   background-color: red;
+   color: red;
+}
+
+/*  For Total Reviews  */
+#mid-reviews .button{
+   display: flex;
+   position: relative;
+    left: 86%;
+}
+@media ( max-width:1117px) {
+   #mid-reviews .button{
+      display: flex;
+      position: relative;
+       left: 80%;
+   }
+}
+@media ( max-width:900px) {
+   #mid-reviews .button{
+      display: flex;
+      position: relative;
+       left: 81%;
+   }
+}
+@media ( max-width:750px) {
+   #mid-reviews .button{
+      display: flex;
+      position: relative;
+       left: 73%;
+   }
+}
