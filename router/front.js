@@ -21,13 +21,13 @@ router.get('/login', (req, res) => {
 
 /*-------FOR LOGIN PR REDIRECT AAFTER LOGOUT PAGE------*/
 router.get('/login', (req, res) => {
-  if(req.session.isAuth){
+  if (req.session.isAuth) {
     res.redirect('/allentry')
-  }else{
- 
-  res.render('mainlogin.ejs')
-}
-    
+  } else {
+
+    res.render('mainlogin.ejs')
+  }
+
 });
 
 /*-------FOR LOGIN PAGE PR PASSWORD------*/
@@ -40,17 +40,21 @@ router.get('/data', async (req, res) => {
 });
 /*-------FOR HOME PAGE------*/
 router.get('/', (req, res) => {
-  res.render('parkinghome.ejs')
+  const user = req.cookies.name
+  res.render('parkinghome.ejs', { user })
 });
+
+//  For login page ------------
 
 router.post('/', async (req, res) => {
   const { username, password } = req.body
   const parkinglogin = await Parking.findOne({ username: username })
-
+  // console.log(parkinglogin)
   if (parkinglogin !== null) {
     if (parkinglogin.password == password) {
       req.session.isAuth = true;
-      res.render('parkinghome.ejs')
+      res.cookie("name", "abhishek", { httpOnly: true })
+      res.redirect('/')
     } else {
       res.redirect('/login')
     }
@@ -62,10 +66,10 @@ router.post('/', async (req, res) => {
 /*-------FOR ALL ENTERY PR VALUE SEND KRNE K LIYE------*/
 router.get('/allentry', logincheck, async (req, res) => {
   const Intimere = await Intime.find({ status: 'IN' })
-  const $_all_entery= (await Intime.find({status:'IN'}).count()).toString()
+  const $_all_entery = (await Intime.find({ status: 'IN' }).count()).toString()
 
   console.log($_all_entery)
-  res.render('allentery.ejs', { Intimere: Intimere,$_all_entery:$_all_entery })
+  res.render('allentery.ejs', { Intimere: Intimere, $_all_entery: $_all_entery })
 });
 
 router.get('/NewEntery', logincheck, async (req, res) => {
@@ -98,11 +102,11 @@ router.post('/NewEntery', async (req, res) => {
 
 
 
-  const intimeRecord = new Intime({ vtype: vtype, vin: vin, price: price, vno: vno, status: 'IN', vout: '0', total: '0', time: fullyear,})
+  const intimeRecord = new Intime({ vtype: vtype, vin: vin, price: price, vno: vno, status: 'IN', vout: '0', total: '0', time: fullyear, })
 
   await intimeRecord.save()
- 
- res.redirect('/allentry')
+
+  res.redirect('/allentry')
 
 
 })
@@ -150,8 +154,8 @@ router.post('/statusupdate/:id', logincheck, async (req, res) => {
 /*-------FOR NEW PAGE THERE IS ALL OUT VIECHELES------*/
 router.get('/alloutViechele', logincheck, async (req, res) => {
   const alloutdata = await Intime.find({ status: "OUT" })
-  const $_all_out=  (await Intime.find({status:"OUT"}).count()).toString()
-  res.render('AllOutV.ejs', { alloutdata: alloutdata,$_all_out:$_all_out})
+  const $_all_out = (await Intime.find({ status: "OUT" }).count()).toString()
+  res.render('AllOutV.ejs', { alloutdata: alloutdata, $_all_out: $_all_out })
 
 })
 
@@ -181,10 +185,10 @@ router.get('/print/:id', logincheck, async (req, res) => {
 //.....For user  reviews ......//
 router.get('/allreviews', async (req, res) => {
   const allReview = await Reviews.find()
-  const countt=(await Reviews.find().count()).toString()
+  const countt = (await Reviews.find().count()).toString()
   console.log(countt)
-  
-  res.render('allReviews.ejs', { allReview: allReview,countt:countt})
+
+  res.render('allReviews.ejs', { allReview: allReview, countt: countt })
 })
 
 router.post('/reviews', async (req, res) => {
@@ -215,6 +219,11 @@ router.get('/updatestatus/:id', async (req, res) => {
 
 
 
+
+router.get('/logout', (req, res) => {
+  res.clearCookie('name')
+  res.redirect('/login')
+})
 
 
 
